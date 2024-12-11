@@ -22,17 +22,17 @@ The key points are:
   - `App.scala` greets an undefined user and decorates a string using the macro (`println(decorate(greet(None)))`);
   - `NumUtils.scala` defines a simple function `isEven` which is completely unrelated to the rest of the code.
 
-The coverage report fail to include `Greeting.scala`, `Macros.scala`, and `NumUtils.scala`. Moreover, it shows 100%
+The coverage report fails to include `Greeting.scala`, `Macros.scala`, and `NumUtils.scala`. Moreover, it shows 100%
 coverage for `App.scala` even though it should be 0% (`main` method is never called in the tests).
 
 ### Steps to Reproduce
 
-```bash
+```
 sbt clean coverage test
 sbt coverageReport
 ```
 
-To make sure that macros are the cause of the issue, simply make the `decorate` method a regular method:
+To make sure that macros are the cause of the issue, simply make the `decorate` macro into regular method:
 
 ```scala
 def decorate(s: String): String = s">>> $s <<<"
