@@ -28,7 +28,8 @@ coverage for `App.scala` even though it should be 0% (`main` method is never cal
 ### Steps to Reproduce
 
 ```
-sbt clean coverage test
+sbt clean
+sbt coverage test
 sbt coverageReport
 ```
 
